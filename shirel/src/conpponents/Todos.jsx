@@ -1,31 +1,54 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import Add from "../acts/Add"
 
-const Todos = () => {
+const Todos = (props) => {
     const [todo, setTodo]=useState([]);
-    fetch("http://localhost:3000/todos")
-      .then((response) => response.json())
-      .then((todo) => console.log(todo))
-     
-        .then((todos) => {
-          for (let i in todos) {
-            fetch(todos[i]).then((response) => response.json())}});
+    const [showGreeting, setShowGreeting] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
+    
+    const handleClick = () => {
+      setShowGreeting(true);
+    };
 
+     const handleChange = (event) => {
+       const checked = event.target.checked;
+       setIsChecked(checked);
+       todo.completed=checked;
+       console.log(todo.completed);
+     };
+
+     useEffect(() => {
+        console.log("userId:", props.userId); 
+       fetch(`http://localhost:3000/todos/?userId=${props.userId}`)
+         .then((response) => response.json())
+         .then((data) => {
+           console.log("מטלות התקבלו:", data);
+           setTodo(data);
+         })
+         .catch((error) => console.error("שגיאה בטעינת המטלות:", error));
+     }, [props.userId]);
+
+    const arrTodo=todo;
   return (
-      <>
-        <form action="/action_page.php">
-            <>
-              <input
-                type="checkbox"
-                id={todos[i].id}
-                name={todos[i].id}
-                value={todos[i].id}/>
-
-              <label htmlFor={todos[i].id}>`${todos[i].title}`</label>
-                {console.log(todos[i])}
-              <input type="submit" value="Submit" />
-            </>
-          
-        </form>;
+    <>
+      <h1>to do list</h1>
+      <ul>
+        {todo.map((todo) => (
+          <li key={todo.id}>
+            <input
+              checked={isChecked}
+              onChange={handleChange}
+              type="checkbox"
+              id={todo.id}
+              name={todo.id}
+              value={todo.id}
+            />
+            <label htmlFor={todo.id}>{todo.title}</label>
+          </li>
+        ))}
+      </ul>
+      <button onClick={handleClick}>add to do</button>
+      {showGreeting && <Add todo={todo} />}
     </>
   );
 };
