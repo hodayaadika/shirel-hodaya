@@ -1,5 +1,6 @@
-import { useState } from "react";
-import "./App.css";
+import { useState } from 'react'
+import Todos from './conpponents/Todos'
+import './App.css'
 import User from "./conpponents/User";
 
 fetch("")
@@ -22,6 +23,8 @@ function App() {
 
   return (
     <>
+      <Todos />
+
       <div>
         <div className="userContainer">
           {users.map((item, index) => (
