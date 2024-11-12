@@ -1,39 +1,51 @@
 import { useState } from 'react'
-import Todos from './conpponents/Todos'
+// import { Browser }
+import Todos from './conpponents/Todos';
 import './App.css'
-import User from "./conpponents/User";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import LogIn from './conpponents/LogIn';
+import SignUp from './conpponents/SingUp';
+import Posts from './conpponents/Posts';
+import Info from './conpponents/Info';
+import Albums from './conpponents/Albums';
+import Layout from './conpponents/Layout';
+// import Todos from './conpponents/Todos';
 
-fetch("")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+
+
 
 function App() {
-  const [users, setUsers] = useState([{}]);
+  const[isConnected,setIsConnected] = useState(false);
 
-  function addUsers(users) {
-    setUsers((prevUser) => {
-      let newArr = [...prevUser.slice(0, -1), { player, hasWon: false }, {}];
-      if (prevPlayers.length == 1) newArr = [{ player, hasWon: false }, {}];
-
-      return newArr;
-    });
-  }
-
-  console.log("hii");
 
   return (
     <>
-      <Todos />
+    <Router>
+      {!isConnected ?(
+        <>
+        <Routes>
+          <Route path= "*" element={<LogIn isConnected={isConnected} setIsConnected={setIsConnected}/>}/>
+          <Route path= "/SingUp" element={<SignUp isConnected={isConnected} setIsConnected={setIsConnected}/>}/>
+        </Routes>
+        </>
+      ) : (
+        <>
+        <NavLink to="/info"></NavLink>
+        <Routes>
+        <Route path="/" element={<Layout isConnected={isConnected} setIsConnected={setIsConnected} />}>
+                                <Route path="info" element={<Info />} />
+                                <Route path="albums" element={<Albums />} />
+                                <Route path="todos" element={<Todos />} />
+                                <Route path="posts" element={<Posts />} />
+                                <Route path="*" element={<Info />} />
+                            </Route>
+          </Routes>
+          </>
+      )}
+    </Router>
 
-      <div>
-        <div className="userContainer">
-          {users.map((item, index) => (
-            <div key={"user" + index.toString()} className="user">
-              <User id={"user" + index} user={item} addUsers={addUsers} />
-            </div>
-          ))}
-        </div>
-      </div>
+
+
     </>
   );
 }
