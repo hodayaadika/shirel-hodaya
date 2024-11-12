@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-fetch('https://jsonplaceholder.typicode/1')
+fetch('')
       .then(response => response.json())
       .then(json => console.log(json))
 
