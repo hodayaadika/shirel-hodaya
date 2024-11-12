@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Todos from './conpponents/Todos'
 import './App.css'
 
 fetch('')
@@ -6,11 +7,10 @@ fetch('')
       .then(json => console.log(json))
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-
+      <Todos />
 
     </>
   )
