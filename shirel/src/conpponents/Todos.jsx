@@ -4,17 +4,21 @@ import Add from "../acts/Add"
 const Todos = (props) => {
     const [todo, setTodo]=useState([]);
     const [showGreeting, setShowGreeting] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
     
     const handleClick = () => {
       setShowGreeting(true);
     };
 
-     const handleChange = (event) => {
-       const checked = event.target.checked;
-       setIsChecked(checked);
-       todo.completed=checked;
-       console.log(todo.completed);
+     const handleChange = (event, id) => {
+       setTodo((prev) => {
+         return prev.map((todoItem) => {
+           if (todoItem.id === id) {
+             return { ...todoItem, completed: !todoItem.completed };
+           }
+           return todoItem;
+           console.log(todo);
+         });
+       });
      };
 
      useEffect(() => {
@@ -29,6 +33,7 @@ const Todos = (props) => {
      }, [props.userId]);
 
     const arrTodo=todo;
+    console.log(todo);
   return (
     <>
       <h1>to do list</h1>
@@ -36,8 +41,8 @@ const Todos = (props) => {
         {todo.map((todo) => (
           <li key={todo.id}>
             <input
-              checked={isChecked}
-              onChange={handleChange}
+              checked={todo.completed}
+              onChange={(event)=>handleChange(event,todo.id)}
               type="checkbox"
               id={todo.id}
               name={todo.id}
@@ -47,8 +52,8 @@ const Todos = (props) => {
           </li>
         ))}
       </ul>
-      <button onClick={handleClick}>add to do</button>
-      {showGreeting && <Add todo={todo} />}
+        <button onClick={handleClick}>add to do</button>
+        {showGreeting && <Add todo={todo} />}
     </>
   );
 };
