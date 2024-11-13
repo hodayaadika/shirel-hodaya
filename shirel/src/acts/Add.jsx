@@ -7,12 +7,12 @@ const add = (props) => {
     };
 
     const addLocalstorage=()=>{
-      props.todo.push({
+      props.setTodo((prev) => ({...prev, 
         userId: props.todo[0].userId,
         id: props.todo.length,
         title: inputValue,
         completed: false,
-      });
+      }));
       console.log(props.todo)
     };
     

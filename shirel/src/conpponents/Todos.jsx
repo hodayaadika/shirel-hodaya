@@ -51,7 +51,7 @@ const Todos = (props) => {
         ))}
       </ul>
       <button onClick={handleClick}>add to do</button>
-      {showGreeting && <Add todo={todo} />}
+      {showGreeting && <Add todo={todo} setTodo={setTodo} />}
       <button onClick={handleClick}>serch</button>
       {showGreeting && <Serch todo={todo} />}
     </>
