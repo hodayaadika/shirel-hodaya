@@ -16,8 +16,12 @@ function App() {
 
   return (
     <>
-      <Albums userId="1" />
-      {/* <Router>
+      {/* <Todos userId="1"/> */}
+      {/* <Info id="1" /> */}
+            {/* <Albums userId="1" /> */}
+
+
+      <Router>
       {!isConnected ?(
         <>
         <Routes>
@@ -40,7 +44,7 @@ function App() {
           </NavLink>
           </>
       )}
-    </Router> */}
+    </Router>
     </>
   );
 }
