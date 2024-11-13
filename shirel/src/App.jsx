@@ -10,9 +10,6 @@ import Info from './conpponents/Info';
 import Albums from './conpponents/Albums';
 import Layout from './conpponents/Layout';
 
-
-
-
 function App() {
   const[isConnected,setIsConnected] = useState(false);
 
