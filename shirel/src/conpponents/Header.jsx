@@ -12,9 +12,9 @@ export default function Header({isConnected, setIsConnected}){
             <button onClick={logout}>log out</button>
 
             <nav>
-                <NavLink to="info">info</NavLink>
+                <NavLink to="Info">info</NavLink>
                 <NavLink to="posts">posts</NavLink>
-                <NavLink to="album">album</NavLink>
+                <NavLink to="albums">album</NavLink>
                 <NavLink to="todo">todo</NavLink>
             </nav>
         </div>
