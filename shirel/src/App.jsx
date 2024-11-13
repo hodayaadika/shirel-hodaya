@@ -27,12 +27,12 @@ function App() {
         <>
         <Routes>
           <Route path= "*" element={<LogIn isConnected={isConnected} setIsConnected={setIsConnected}/>}/>
-          <Route path= "/SingUp" element={<SignUp isConnected={isConnected} setIsConnected={setIsConnected}/>}/>
+          <Route path="/SignUp" element={<SignUp isConnected={isConnected} setIsConnected={setIsConnected}/>}/>
         </Routes>
         </>
       ) : (
         <>
-        <NavLink to="/info"></NavLink>
+        <NavLink>
         <Routes>
         <Route path="/" element={<Layout isConnected={isConnected} setIsConnected={setIsConnected} />}>
                                 <Route path="info" element={<Info />} />
@@ -42,6 +42,7 @@ function App() {
                                 <Route path="*" element={<Info />} />
                             </Route>
           </Routes>
+          </NavLink>
           </>
       )}
     </Router>
