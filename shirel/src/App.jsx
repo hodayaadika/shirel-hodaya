@@ -10,9 +10,6 @@ import Info from './conpponents/Info';
 import Albums from './conpponents/Albums';
 import Layout from './conpponents/Layout';
 
-
-
-
 function App() {
   const[isConnected,setIsConnected] = useState(false);
 
@@ -21,6 +18,8 @@ function App() {
     <>
       {/* <Todos userId="1"/> */}
       {/* <Info id="1" /> */}
+            {/* <Albums userId="1" /> */}
+
 
       <Router>
       {!isConnected ?(
@@ -35,11 +34,11 @@ function App() {
         <NavLink>
         <Routes>
         <Route path="/" element={<Layout isConnected={isConnected} setIsConnected={setIsConnected} />}>
-                                <Route path="info" element={<Info />} />
+                                <Route path="info" element={<Info userId="1"/>} />
                                 <Route path="albums" element={<Albums />} />
                                 <Route path="todos" element={<Todos />} />
                                 <Route path="posts" element={<Posts />} />
-                                <Route path="*" element={<Info />} />
+                                <Route path="*" element={<Info id="1"/>} />
                             </Route>
           </Routes>
           </NavLink>

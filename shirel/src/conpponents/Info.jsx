@@ -14,7 +14,7 @@ function Info(props) {
   }, [props.id]);
 
   if (!userData.name) {
-    return <div>טוען...</div>; 
+    return <div>loading...</div>; 
   }
   return (
     <>
