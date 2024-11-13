@@ -1,12 +1,22 @@
-import { useEffect } from "react"
+import React from "react";
 
-function comments(){
-
-return(
+function Comments({ comments }) {
+  return (
     <>
-    <h1>comments</h1>
+      <h1>Comments</h1>
+      {comments.length > 0 ? (
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment.id}>
+              <p><strong>{comment.name}</strong>: {comment.body}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No comments found.</p>
+      )}
     </>
-)
+  );
 }
 
-export default comments
+export default Comments;

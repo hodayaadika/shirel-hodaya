@@ -21,7 +21,6 @@ function Posts() {
     }
   }, [userId]);
 
-  console.log("showPost: ", showPost);
   return (
     <>
       <h1>Posts</h1>
@@ -29,9 +28,10 @@ function Posts() {
         <ol>
           {posts.map((post) => (
             <li key={post.id}>
-              {/* <h3>{post.title}</h3> */}
               <button onClick={() => handleClick(post.id)}>{post.title}</button>
-              {showPost === post.id && <Post post={post.body} />}
+              {showPost === post.id && (
+                <Post postId={post.id} postBody={post.body} />
+              )}
             </li>
           ))}
         </ol>
