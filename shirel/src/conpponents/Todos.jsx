@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Add from "../acts/Add"
+import Serch from '../acts/Serch';
 
 const Todos = (props) => {
     const [todo, setTodo]=useState([]);
@@ -16,7 +17,6 @@ const Todos = (props) => {
              return { ...todoItem, completed: !todoItem.completed };
            }
            return todoItem;
-           console.log(todo);
          });
        });
      };
@@ -26,14 +26,12 @@ const Todos = (props) => {
        fetch(`http://localhost:3000/todos/?userId=${props.userId}`)
          .then((response) => response.json())
          .then((data) => {
-           console.log("מטלות התקבלו:", data);
+           console.log(data);
            setTodo(data);
          })
          .catch((error) => console.error("שגיאה בטעינת המטלות:", error));
      }, [props.userId]);
 
-    const arrTodo=todo;
-    console.log(todo);
   return (
     <>
       <h1>to do list</h1>
@@ -42,7 +40,7 @@ const Todos = (props) => {
           <li key={todo.id}>
             <input
               checked={todo.completed}
-              onChange={(event)=>handleChange(event,todo.id)}
+              onChange={(event) => handleChange(event, todo.id)}
               type="checkbox"
               id={todo.id}
               name={todo.id}
@@ -52,8 +50,10 @@ const Todos = (props) => {
           </li>
         ))}
       </ul>
-        <button onClick={handleClick}>add to do</button>
-        {showGreeting && <Add todo={todo} />}
+      <button onClick={handleClick}>add to do</button>
+      {showGreeting && <Add todo={todo} />}
+      <button onClick={handleClick}>serch</button>
+      {showGreeting && <Serch todo={todo} />}
     </>
   );
 };
