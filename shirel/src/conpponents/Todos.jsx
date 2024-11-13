@@ -1,20 +1,24 @@
 import {useState, useEffect} from 'react'
 import Add from "../acts/Add"
+import Serch from '../acts/Serch';
 
 const Todos = (props) => {
     const [todo, setTodo]=useState([]);
     const [showGreeting, setShowGreeting] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
     
     const handleClick = () => {
       setShowGreeting(true);
     };
 
-     const handleChange = (event) => {
-       const checked = event.target.checked;
-       setIsChecked(checked);
-       todo.completed=checked;
-       console.log(todo.completed);
+     const handleChange = (event, id) => {
+       setTodo((prev) => {
+         return prev.map((todoItem) => {
+           if (todoItem.id === id) {
+             return { ...todoItem, completed: !todoItem.completed };
+           }
+           return todoItem;
+         });
+       });
      };
 
      useEffect(() => {
@@ -22,13 +26,12 @@ const Todos = (props) => {
        fetch(`http://localhost:3000/todos/?userId=${props.userId}`)
          .then((response) => response.json())
          .then((data) => {
-           console.log("מטלות התקבלו:", data);
+           console.log(data);
            setTodo(data);
          })
          .catch((error) => console.error("שגיאה בטעינת המטלות:", error));
      }, [props.userId]);
 
-    const arrTodo=todo;
   return (
     <>
       <h1>to do list</h1>
@@ -36,8 +39,8 @@ const Todos = (props) => {
         {todo.map((todo) => (
           <li key={todo.id}>
             <input
-              checked={isChecked}
-              onChange={handleChange}
+              checked={todo.completed}
+              onChange={(event) => handleChange(event, todo.id)}
               type="checkbox"
               id={todo.id}
               name={todo.id}
@@ -49,6 +52,8 @@ const Todos = (props) => {
       </ul>
       <button onClick={handleClick}>add to do</button>
       {showGreeting && <Add todo={todo} />}
+      <button onClick={handleClick}>serch</button>
+      {showGreeting && <Serch todo={todo} />}
     </>
   );
 };

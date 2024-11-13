@@ -9,7 +9,6 @@ import Posts from './conpponents/Posts';
 import Info from './conpponents/Info';
 import Albums from './conpponents/Albums';
 import Layout from './conpponents/Layout';
-// import Todos from './conpponents/Todos';
 
 
 
@@ -20,9 +19,10 @@ function App() {
 
   return (
     <>
-          {/* <Todos userId="5"/> */}
+      {/* <Todos userId="1"/> */}
+      <Info id="1" />
 
-    <Router>
+      {/* <Router>
       {!isConnected ?(
         <>
         <Routes>
@@ -45,10 +45,7 @@ function App() {
           </NavLink>
           </>
       )}
-    </Router>
-
-
-
+    </Router> */}
     </>
   );
 }
