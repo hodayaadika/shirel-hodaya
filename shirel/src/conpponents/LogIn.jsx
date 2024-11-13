@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 function LogIn({ isConnected, setIsConnected }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [id , setId] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ function LogIn({ isConnected, setIsConnected }) {
         if (data.length > 0) {
           localStorage.setItem(
             "currentUser",
-            JSON.stringify({ userName: userName, password: password })
+            JSON.stringify({ userName: userName, password: password , id: data[0].id})
           );
           setIsConnected(true);
         } else {
