@@ -34,7 +34,7 @@ function App() {
         <NavLink>
         <Routes>
         <Route path="/" element={<Layout isConnected={isConnected} setIsConnected={setIsConnected} />}>
-                                <Route path="info" element={<Info userId="1"/>} />
+                                {/* <Route path="info" element={<Info userId="1"/>} /> */}
                                 <Route path="albums" element={<Albums />} />
                                 <Route path="todos" element={<Todos />} />
                                 <Route path="posts" element={<Posts />} />

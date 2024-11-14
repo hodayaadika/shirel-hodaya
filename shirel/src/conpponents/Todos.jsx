@@ -29,7 +29,7 @@ const Todos = (props) => {
            console.log(data);
            setTodo(data);
          })
-         .catch((error) => console.error("שגיאה בטעינת המטלות:", error));
+         .catch((error) => console.error("sorry,somthing is not ok", error));
      }, [props.userId]);
 
   return (

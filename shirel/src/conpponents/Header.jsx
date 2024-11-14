@@ -15,7 +15,7 @@ export default function Header({isConnected, setIsConnected}){
                 <NavLink to="Info">info</NavLink>
                 <NavLink to="posts">posts</NavLink>
                 <NavLink to="albums">album</NavLink>
-                <NavLink to="todo">todo</NavLink>
+                <NavLink to="todos">todo</NavLink>
             </nav>
         </div>
         </>
