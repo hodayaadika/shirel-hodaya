@@ -4,7 +4,6 @@ import EditButton from "../acts/EditButton";
 function Comments({ comments }) {
   const [editedComments, setEditedComments] = useState(comments);
 
-  // הדפסת לוג לבדוק אם יש תגובות בקבלת הקומפוננטה
   useEffect(() => {
     console.log("Received comments:", comments);
     setEditedComments(comments);
@@ -20,7 +19,6 @@ function Comments({ comments }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        // עדכון התגובה לאחר שמירה מוצלחת
         setEditedComments((prevComments) =>
           prevComments.map((comment) =>
             comment.id === commentId ? { ...comment, body: newBody } : comment
@@ -42,8 +40,8 @@ function Comments({ comments }) {
                 <strong>{comment.name}</strong>: {comment.body}
               </p>
               <EditButton
-                initialBody={comment.body}
-                onSave={(newBody) => saveCommentChanges(comment.id, newBody)}
+                initialBody={comment.body} 
+                onSave={(newBody) => saveCommentChanges(comment.id, newBody)} 
               />
             </li>
           ))}
@@ -56,3 +54,4 @@ function Comments({ comments }) {
 }
 
 export default Comments;
+

@@ -1,18 +1,20 @@
+import React, { useState, useEffect } from "react";
 
-
-import React, { useState } from "react";
-
-function EditButton({ initialValue, onSave }) {
+function EditButton({ initialBody, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(initialBody);
+
+  useEffect(() => {
+    setValue(initialBody);
+  }, [initialBody]);
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
   const handleSave = () => {
-    onSave(value);
-    setIsEditing(false);
+    onSave(value); 
+    setIsEditing(false); 
   };
 
   return (
@@ -21,7 +23,7 @@ function EditButton({ initialValue, onSave }) {
         <>
           <textarea
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)} 
           />
           <button onClick={handleSave}>Save</button>
         </>

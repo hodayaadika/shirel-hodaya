@@ -10,7 +10,9 @@ function Post({ postId, postBody }) {
   const fetchComments = () => {
     fetch(`http://localhost:3000/comments?postId=${postId}`)
       .then((response) => response.json())
-      .then((data) => setComments(data))
+      .then((data) => {
+        setComments(data); 
+      })
       .catch((error) => console.error("Error fetching comments:", error));
   };
 
@@ -18,7 +20,7 @@ function Post({ postId, postBody }) {
     if (showComments) {
       fetchComments();
     }
-  }, [showComments]);
+  }, [showComments, postId]); 
 
   const savePostChanges = (newBody) => {
     fetch(`http://localhost:3000/posts/${postId}`, {

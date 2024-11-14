@@ -50,7 +50,7 @@ const Todos = () => {
 
   return (
     <>
-      <h1>to do list</h1>
+      <h1 className="up , font">to do list</h1>
       {/* <button onClick={handleClick}>serch</button>
       {showGreeting && <Serch arrData={todo} />} */}
       <ul>

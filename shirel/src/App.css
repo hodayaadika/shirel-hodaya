@@ -43,7 +43,7 @@ body {
 }
 
 .info{
-  color: #D96098;
+  color: black;
 }
 
 .user-profile{
@@ -55,9 +55,6 @@ body {
 
 }
 
-.button{
-  margin: 15px;
-}
 
 
 

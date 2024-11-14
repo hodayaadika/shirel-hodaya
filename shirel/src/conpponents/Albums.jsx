@@ -24,11 +24,11 @@ function Albums() {
   console.log(album);
   return (
     <>
-      <h1>Albums</h1>
+      <h1 className="up , font">Albums</h1>
       <div>
         {album.map((album) => (
           <>
-            <button onClick={handleClick}>{album.title}</button>
+            <button className="button" onClick={handleClick}>{album.title}</button>
             {showGreeting && <Photos albumId={album.id} />}
           </>
         ))}
