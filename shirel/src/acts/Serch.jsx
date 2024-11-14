@@ -1,17 +1,20 @@
-import React from 'react'
+import {useState} from 'react'
 
 const Serch = (props) => {
 
      const [inputValue, setInputValue] = useState("");
+    const arrSerch=[...props.arrData];
+
+
      const getInputValue = (event) => {
        setInputValue(event.target.value);
      };
 
      const serchDb=()=>{
         if (
-          inputValue === porps.todo.id ||
-           porps.todo.title.includes (inputValue)||
-          inputValue === porps.todo.completed
+          inputValue === arrSerch.id ||
+           props.arrData.title.includes (inputValue)||
+          inputValue === props.todo.completed
         ) {
           return true;
         }

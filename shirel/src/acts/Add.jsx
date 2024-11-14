@@ -7,19 +7,19 @@ const add = (props) => {
     };
 
     const addLocalstorage=()=>{
-      props.setTodo((prev) => ({...prev, 
-        userId: props.todo[0].userId,
-        id: props.todo.length,
+      props.setArrData((prev) => ({...prev, 
+        userId: props.arrData[0].userId,
+        id: props.arrData.length,
         title: inputValue,
-        completed: false,
+        // completed: false,
       }));
-      console.log(props.todo)
+      console.log(props.arrData);
     };
     
   return (
     <>
       <input type="text" onChange={getInputValue} />
-      <button onClick={addLocalstorage}>add to local storage </button>
+      <button onClick={addLocalstorage}>add to db </button>
     </>
   );
 };

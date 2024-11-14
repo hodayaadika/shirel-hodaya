@@ -16,9 +16,11 @@ const Todos = (props) => {
            if (todoItem.id === id) {
              return { ...todoItem, completed: !todoItem.completed };
            }
+           console.log(todoItem.completed);
            return todoItem;
-         });
-       });
+          });
+        });
+        console.log(todo);
      };
 
      useEffect(() => {
@@ -35,6 +37,8 @@ const Todos = (props) => {
   return (
     <>
       <h1>to do list</h1>
+      <button onClick={handleClick}>serch</button>
+      {showGreeting && <Serch arrData={todo} />}
       <ul>
         {todo.map((todo) => (
           <li key={todo.id}>
@@ -51,9 +55,7 @@ const Todos = (props) => {
         ))}
       </ul>
       <button onClick={handleClick}>add to do</button>
-      {showGreeting && <Add todo={todo} setTodo={setTodo} />}
-      <button onClick={handleClick}>serch</button>
-      {showGreeting && <Serch todo={todo} />}
+      {showGreeting && <Add arrData={todo} setArrData={setTodo} />}
     </>
   );
 };
