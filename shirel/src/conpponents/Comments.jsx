@@ -8,7 +8,9 @@ function Comments({ comments }) {
         <ul>
           {comments.map((comment) => (
             <li key={comment.id}>
-              <p><strong>{comment.name}</strong>: {comment.body}</p>
+              <p>
+                <strong>{comment.name}</strong>: {comment.body}
+              </p>
             </li>
           ))}
         </ul>

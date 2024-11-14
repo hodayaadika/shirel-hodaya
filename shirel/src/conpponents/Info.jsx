@@ -10,7 +10,7 @@ function Info(props) {
         setUserData(data);
         console.log(data);
       })
-      .catch((error) => console.error("שגיאה בהורדת נתוני המשתמש:", error));
+      .catch((error) => console.error("error", error));
   }, [props.id]);
 
   if (!userData.name) {

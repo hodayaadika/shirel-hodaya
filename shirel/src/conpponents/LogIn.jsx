@@ -36,6 +36,7 @@ function LogIn({ isConnected, setIsConnected }) {
 
   return (
     <>
+    <div id="LogIn">
       <h3 className="font">Log In</h3>
       <form onSubmit={handleSubmit}>
         <div>
@@ -63,13 +64,14 @@ function LogIn({ isConnected, setIsConnected }) {
           <br />
           <br />
 
-          <button>Login</button>
+          <button className="font">Login</button>
           <br />
           <br />
           <br />
         </div>
-        <NavLink to="/SignUp">Sign Up</NavLink>
+        <NavLink to="/SignUp" className="font">Sign Up</NavLink>
       </form>
+      </div>
     </>
   );
 }
