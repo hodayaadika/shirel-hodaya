@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 
-function Info(props) {
+function Info() {
   const [userData, setUserData] = useState({});
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const userId = currentUser ? currentUser.id : null;
+
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${props.id}`)
+    fetch(`http://localhost:3000/users/${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setUserData(data);
         console.log(data);
       })
       .catch((error) => console.error("error", error));
-  }, [props.id]);
+  }, [userId]);
 
   if (!userData.name) {
     return <div>loading...</div>; 
