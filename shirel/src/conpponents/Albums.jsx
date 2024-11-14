@@ -1,23 +1,26 @@
 import { useState, useEffect } from "react";
 import Photos from "./Photos";
 
-function Albums(props) {
+function Albums() {
   const [album, setAlbum] = useState([]);
   const [showGreeting, setShowGreeting] = useState(false);
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const userId = currentUser ? currentUser.id : null;
 
   const handleClick = () => {
     setShowGreeting(true);
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/albums?userId=${props.userId}`)
+    fetch(`http://localhost:3000/albums?userId=${userId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setAlbum(data);
       })
-      .catch((error) => console.error("Error:", error));
-  }, [props.userId]);
+      .catch((error) => console.error("שגיאה בטעינת האלבומים:", error));
+  }, [userId]);
   console.log(album);
   return (
     <>
