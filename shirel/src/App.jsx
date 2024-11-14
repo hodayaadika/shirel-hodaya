@@ -16,12 +16,12 @@ function App() {
 
   return (
     <>
-      <Todos userId="1"/>
+      {/* <Todos userId="1"/> */}
       {/* <Info id="1" /> */}
             {/* <Albums userId="1" /> */}
 
 
-      {/* <Router>
+      <Router>
       {!isConnected ?(
         <>
         <Routes>
@@ -34,7 +34,6 @@ function App() {
         <NavLink>
         <Routes>
         <Route path="/" element={<Layout isConnected={isConnected} setIsConnected={setIsConnected} />}>
-                                {/* <Route path="info" element={<Info userId="1"/>} /> */}
                                 <Route path="albums" element={<Albums />} />
                                 <Route path="todos" element={<Todos />} />
                                 <Route path="posts" element={<Posts />} />
@@ -44,7 +43,7 @@ function App() {
           </NavLink>
           </>
       )}
-    </Router> */}
+    </Router>
     </>
   );
 }

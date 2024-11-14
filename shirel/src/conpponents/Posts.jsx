@@ -23,12 +23,12 @@ function Posts() {
 
   return (
     <>
-      <h1>Posts</h1>
+      <h1 className="font , up">Posts</h1>
       {posts.length > 0 ? (
         <ol>
           {posts.map((post) => (
             <li key={post.id}>
-              <button onClick={() => handleClick(post.id)}>{post.title}</button>
+              <button className="button" onClick={() => handleClick(post.id)}>{post.title}</button>
               {showPost === post.id && (
                 <Post postId={post.id} postBody={post.body} />
               )}

@@ -16,7 +16,7 @@ function Albums(props) {
         console.log(data);
         setAlbum(data);
       })
-      .catch((error) => console.error("שגיאה בטעינת האלבומים:", error));
+      .catch((error) => console.error("Error:", error));
   }, [props.userId]);
   console.log(album);
   return (

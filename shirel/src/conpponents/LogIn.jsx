@@ -64,12 +64,12 @@ function LogIn({ isConnected, setIsConnected }) {
           <br />
           <br />
 
-          <button className="font">Login</button>
+          <button className="button">Login</button>
           <br />
           <br />
           <br />
         </div>
-        <NavLink to="/SignUp" className="font">Sign Up</NavLink>
+        <NavLink to="/SignUp" className="button">Sign Up</NavLink>
       </form>
       </div>
     </>
