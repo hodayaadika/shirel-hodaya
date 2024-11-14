@@ -13,6 +13,7 @@ const Add = (props) => {
     event.preventDefault(); // Prevent default form submission behavior
 
     // Sending the new todo item to the backend
+    console.log('props: ', props);
     fetch(`http://localhost:3000/${props.db}`, {
       method: "POST",
       headers: {
