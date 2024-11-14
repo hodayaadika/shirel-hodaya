@@ -20,6 +20,11 @@ function Posts() {
         .catch((error) => console.error("Error fetching posts:", error));
     }
   }, [userId]);
+  console.log('userId: ', userId);
+
+
+  console.log('post: ', posts);
+
 
   return (
     <>
