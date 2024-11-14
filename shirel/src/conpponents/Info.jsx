@@ -22,43 +22,43 @@ function Info() {
   return (
     <>
       <div className="user-profile">
-        <h2>info: User Profile</h2>
+        <h2 className="up , font">info: User Profile</h2>
 
         <p>
-          <strong>Name:</strong> {userData.name}
+          <strong className="info">Name:</strong> {userData.name}
         </p>
         <p>
-          <strong>Username:</strong> {userData.username}
+          <strong className="info">Username:</strong> {userData.username}
         </p>
         <p>
-          <strong>Email:</strong> {userData.email}
+          <strong className="info">Email:</strong> {userData.email}
         </p>
 
-        <h3>Address</h3>
+        <h3 className="font">Address</h3>
         <p>
-          <strong>Street:</strong> {userData.address.street}
+          <strong className="info">Street:</strong> {userData.address.street}
         </p>
         <p>
-          <strong>Suite:</strong> {userData.address.suite}
+          <strong className="info">Suite:</strong> {userData.address.suite}
         </p>
         <p>
-          <strong>City:</strong> {userData.address.city}
+          <strong className="info">City:</strong> {userData.address.city}
         </p>
         <p>
-          <strong>Zipcode:</strong> {userData.address.zipcode}
+          <strong className="info">Zipcode:</strong> {userData.address.zipcode}
         </p>
         <p>
-          <strong>Geo:</strong> Latitude: {userData.address.geo.lat}, Longitude:{" "}
+          <strong className="info">Geo:</strong> Latitude: {userData.address.geo.lat}, Longitude:{" "}
           {userData.address.geo.lng}
         </p>
 
-        <h3>Contact Information</h3>
+        <h3 className="font">Contact Information</h3>
         <p>
-          <strong>Phone:</strong> {userData.phone}
+          <strong className="info">Phone:</strong> {userData.phone}
         </p>
         <p>
-          <strong>Website:</strong>{" "}
-          <a
+          <strong className="info">Website:</strong>{" "}
+          <a id="stupid"
             href={`https://${userData.website}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -67,15 +67,15 @@ function Info() {
           </a>
         </p>
 
-        <h3>Company</h3>
+        <h3 className="font">Company</h3>
         <p>
-          <strong>Company Name:</strong> {userData.company.name}
+          <strong className="info">Company Name:</strong> {userData.company.name}
         </p>
         <p>
-          <strong>Catchphrase:</strong> {userData.company.catchPhrase}
+          <strong className="info">Catchphrase:</strong> {userData.company.catchPhrase}
         </p>
         <p>
-          <strong>BS:</strong> {userData.company.bs}
+          <strong className="info">BS:</strong> {userData.company.bs}
         </p>
       </div>
     </>
